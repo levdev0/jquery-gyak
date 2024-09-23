@@ -1,11 +1,6 @@
-const { speed } = require("jquery");
-
 $(document).ready(function(){});
 $(function(){
-    let r = 128;
-    let g = 128;
-    let b = 128;
-
+    
     $(".piros").on("click", function(){
         $(this).hide(1000);
     });
@@ -27,19 +22,11 @@ $(function(){
     });
 
     $("[type=range]").change(function(){
-        console.log($("[name=red]").val());
-        let element = $(this);
-        switch (element.attr("name")) {
-            case "red":
-                r = element.val();
-            case "green":
-                g = element.val();
-            case "blue":
-                b = element.val();
-        }
-        $("span").text(`rgb(${r}, ${g}, ${b})`)
-    
-    
+        let r = $("[name=red]").val();
+        let g = $("[name=green]").val(); 
+        let b = $("[name=blue]").val();
+        let rgb = `rgb(${r}, ${g}, ${b})`;
+        $("span").text(rgb);
+        $("span").css("background-color", rgb);
     });
-    
 });
